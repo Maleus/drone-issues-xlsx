@@ -130,7 +130,7 @@ func writesheet(project *lair.Project, outfile string) {
 			cell = row.AddCell()
 			cell.Value = issuenote
 			cell = row.AddCell()
-			cell.Value = host.os
+			cell.Value = host.OS
 		}
 	}
 	err = file.Save(outfile)
