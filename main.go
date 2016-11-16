@@ -69,6 +69,7 @@ func writesheet(project *lair.Project, outfile string) {
 		"Port",
 		"Service Note",
 		"Issue Note(s)",
+		"OS",
 	}
 
 	var file *xlsx.File
@@ -128,6 +129,8 @@ func writesheet(project *lair.Project, outfile string) {
 			cell.Value = getcomment(&project.Hosts, issue.Title, host.IPv4, host.Port)
 			cell = row.AddCell()
 			cell.Value = issuenote
+			cell = row.AddCell()
+			cell.Value = host.os
 		}
 	}
 	err = file.Save(outfile)
