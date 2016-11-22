@@ -52,14 +52,15 @@ func gethostname(ip string, hosts *[]lair.Host) string {
 	}
 	return ""
 }
-func gethostOS(OS string, hosts *[]lair.Host) string{
-	for _, host := range *hosts {
-		if host.OS.Fingerprint == OS {
-			return strings.Join(host.OS.Fingerprint, "\n")
-		}
-	}
-	return ""
-}
+
+//func gethostOS(OS string, hosts *[]lair.Host) string{
+//	for _, host := range *hosts {
+//		if host.OS.Fingerprint == OS {
+//			return strings.Join(host.OS.Fingerprint, "\n")
+//		}
+//	}
+//	return ""
+//}
 
 func writesheet(project *lair.Project, outfile string) {
 	header := []string{
@@ -137,8 +138,8 @@ func writesheet(project *lair.Project, outfile string) {
 			cell.Value = getcomment(&project.Hosts, issue.Title, host.IPv4, host.Port)
 			cell = row.AddCell()
 			cell.Value = issuenote
-			cell = row.AddCell()
-			cell.Value = gethostOS(host.OS.Fingerprint, &project.Hosts)
+			//cell = row.AddCell()
+			//cell.Value = gethostOS(host.OS.Fingerprint, &project.Hosts)
 		}
 	}
 	err = file.Save(outfile)
