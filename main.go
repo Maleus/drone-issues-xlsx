@@ -138,7 +138,7 @@ func writesheet(project *lair.Project, outfile string) {
 			cell = row.AddCell()
 			cell.Value = issuenote
 			cell = row.AddCell()
-			cell.Value = host.OS.Fingerprint
+			cell.Value = Host.OS.Fingerprint
 		}
 	}
 	err = file.Save(outfile)
